@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">BiShe</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="input_hint">亲爱的跟我聊天吧</string>
+
+    <string-array name="welcome_tips">
+        <item>你好！我是小白，你的私人生活助手！</item>
+        <item>好久不见，是不是去拯救世界啦？</item>
+        <item>终于等到你，小白好想你呢！</item>
+        <item>世界那么大，我们还是相遇了呢！</item>
+        <item>路途那么遥远，让小白陪你一起走吧！</item>
+        <item>你好！我是大白的妹妹小白，你的私人生活助手！</item>
+    </string-array>
+
+
+
+    <string name="class_course">课程名称</string>
+    <string name="class_teacher">教师</string>
+    <string name="class_place">地点</string>
+
+    <string name="monday">星期一</string>
+    <string name="tuesday">星期二</string>
+    <string name="wednesday">星期三</string>
+    <string name="thursday">星期四</string>
+    <string name="friday">星期五</string>
+    <string name="saturday">星期六</string>
+    <string name="sunday">星期日</string>
+    <string name="main_title">微课表</string>
+    <string name="str_addClass">确认修改</string>
+
+
+    <string name="NetConnectFailed">噢，好像没能连接上网络，要不你检查一下 </string>
+    <string name="Servefailed">抱歉，好像没能连接上网络，或者是服务器出了点小问题 </string>
+
+</resources>

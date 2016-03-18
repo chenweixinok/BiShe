@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:id="@+id/pop_title"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/btn_recorder_normal"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="音乐列表"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="8" />
+
+
+
+    </LinearLayout>
+
+
+
+        <ListView
+            android:id="@+id/pop_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/pop_title"/>
+
+
+
+
+
+</RelativeLayout>
