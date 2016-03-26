@@ -3,7 +3,7 @@ package android.bishe.bean;
 /**
  * Created by Lenovo on 2016/2/29.
  *
- * ·â×°
+ * å°è£…
  */
 
 public class ListData {

@@ -26,13 +26,13 @@ import java.util.List;
 public class MusicUtils {
 
     public static List<Music> getMusicData(Context context) {
-        ContentResolver mResolver = context.getContentResolver();// »ñÈ¡ÄÚÈİ½âÎöÆ÷
-        if (mResolver != null) {// »ñÈ¡ËùÓĞ¸èÇú
-            // µÚÒ»¸ö²ÎÊı±íÊ¾ÏµÍ³ÖĞÒôÀÖÌá¹©ÕßµÄURI
-            // µÚ¶ş¸ö²ÎÊı±íÊ¾ĞèÒª»ñÈ¡µÄÁĞµÄĞÅÏ¢
-            // µÚÈı¸ö²ÎÊı±íÊ¾²éÑ¯Ìõ¼ş
-            // µÚËÄ¸ö²ÎÊı±íÊ¾Ìõ¼şÖĞµÄÕ¼Î»·û¸³Öµ
-            // µÚÎå¸ö²ÎÊı±íÊ¾²éÑ¯½á¹ûµÄÅÅĞò·½Ê½¡£
+        ContentResolver mResolver = context.getContentResolver();// è·å–å†…å®¹è§£æå™¨
+        if (mResolver != null) {// è·å–æ‰€æœ‰æ­Œæ›²
+            // ç¬¬ä¸€ä¸ªå‚æ•°è¡¨ç¤ºç³»ç»Ÿä¸­éŸ³ä¹æä¾›è€…çš„URI
+            // ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºéœ€è¦è·å–çš„åˆ—çš„ä¿¡æ¯
+            // ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºæŸ¥è¯¢æ¡ä»¶
+            // ç¬¬å››ä¸ªå‚æ•°è¡¨ç¤ºæ¡ä»¶ä¸­çš„å ä½ç¬¦èµ‹å€¼
+            // ç¬¬äº”ä¸ªå‚æ•°è¡¨ç¤ºæŸ¥è¯¢ç»“æœçš„æ’åºæ–¹å¼ã€‚
             Cursor cursor = mResolver.query(
                     MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, null, null,
                     null, MediaStore.Audio.Media.DEFAULT_SORT_ORDER);
@@ -46,43 +46,43 @@ public class MusicUtils {
         if (cursor == null || cursor.getCount() == 0) {
             return null;
         }
-        List<Music> musicList = new ArrayList<Music>();// ´´½¨¼¯ºÏ£¬ÓÃÓÚ´æ·ÅÒôÀÖÊı¾İ
+        List<Music> musicList = new ArrayList<Music>();// åˆ›å»ºé›†åˆï¼Œç”¨äºå­˜æ”¾éŸ³ä¹æ•°æ®
         while (cursor.moveToNext()) {
-            Music m = new Music();// ´´½¨ÒôÀÖ¶ÔÏó
+            Music m = new Music();// åˆ›å»ºéŸ³ä¹å¯¹è±¡
             String title = cursor.getString(cursor
-                    .getColumnIndex(MediaStore.Audio.Media.TITLE));// »ñÈ¡ÒôÀÖ±êÌâ
+                    .getColumnIndex(MediaStore.Audio.Media.TITLE));// è·å–éŸ³ä¹æ ‡é¢˜
             String artist = cursor.getString(cursor
-                    .getColumnIndex(MediaStore.Audio.Media.ARTIST));// »ñÈ¡ÒôÀÖÒÕÊõ¼Ò
+                    .getColumnIndex(MediaStore.Audio.Media.ARTIST));// è·å–éŸ³ä¹è‰ºæœ¯å®¶
             if ("<unknown>".equals(artist)) {
-                artist = "Î´ÖªÒÕÊõ¼Ò";
+                artist = "æœªçŸ¥è‰ºæœ¯å®¶";
             }
             String album = cursor.getString(cursor
-                    .getColumnIndex(MediaStore.Audio.Media.ALBUM));// »ñÈ¡ÒôÀÖ×¨¼­
+                    .getColumnIndex(MediaStore.Audio.Media.ALBUM));// è·å–éŸ³ä¹ä¸“è¾‘
             int album_id = cursor.getInt(cursor
                     .getColumnIndex(MediaStore.Audio.Media.ALBUM_ID));
             long size = cursor.getLong(cursor
-                    .getColumnIndex(MediaStore.Audio.Media.SIZE));// »ñÈ¡ÒôÀÖ´óĞ¡
+                    .getColumnIndex(MediaStore.Audio.Media.SIZE));// è·å–éŸ³ä¹å¤§å°
             int time = cursor.getInt(cursor
-                    .getColumnIndex(MediaStore.Audio.Media.DURATION));// »ñÈ¡ÒôÀÖ³ÖĞøÊ±¼ä£¬µ¥Î»ÎªºÁÃë
+                    .getColumnIndex(MediaStore.Audio.Media.DURATION));// è·å–éŸ³ä¹æŒç»­æ—¶é—´ï¼Œå•ä½ä¸ºæ¯«ç§’
             String url = cursor.getString(cursor
-                    .getColumnIndex(MediaStore.Audio.Media.DATA));// »ñÈ¡ÒôÀÖ±£´æÂ·¾¶
+                    .getColumnIndex(MediaStore.Audio.Media.DATA));// è·å–éŸ³ä¹ä¿å­˜è·¯å¾„
             String name = cursor.getString(cursor
-                    .getColumnIndex(MediaStore.Audio.Media.DISPLAY_NAME));// »ñÈ¡ÒôÀÖÃû°üº¬ºó×º
+                    .getColumnIndex(MediaStore.Audio.Media.DISPLAY_NAME));// è·å–éŸ³ä¹ååŒ…å«åç¼€
             String sub = name.substring(name.lastIndexOf(".") + 1);
-            // »ñÈ¡ÎÄ¼şµÄÀ©Õ¹Ãû
-            if (sub.equals("mp3") && time > 50000) {// ÒÔMP3½áÎ²²¢ÇÒ³¤¶È´óÓÚ5Ãë
-                m.setTitle(title);// ¸èÇú±êÌâ
-                m.setSinger(artist);// ¸èÇúµÄÑİ³ªÕß
-                m.setAlbum(album);// ¸èÇúËùÊô×¨¼­
-                m.setAlbum_id(album_id);// ¸èÇúËùÊô×¨¼­µÄ±àºÅ
-                m.setSize(size);// ¸èÇúµÄ´óĞ¡
-                m.setTime(time);// ¸èÇúµÄÊ±³¤
-                m.setUrl(url);// ¸èÇú´æ·ÅµÄÂ·¾¶
-                m.setName(name);// ¸èÇúÃû£¬°üº¬ºó×º
-                musicList.add(m);// ½«¸èÇúÌí¼Óµ½¼¯ºÏÖĞ
+            // è·å–æ–‡ä»¶çš„æ‰©å±•å
+            if (sub.equals("mp3") && time > 50000) {// ä»¥MP3ç»“å°¾å¹¶ä¸”é•¿åº¦å¤§äº5ç§’
+                m.setTitle(title);// æ­Œæ›²æ ‡é¢˜
+                m.setSinger(artist);// æ­Œæ›²çš„æ¼”å”±è€…
+                m.setAlbum(album);// æ­Œæ›²æ‰€å±ä¸“è¾‘
+                m.setAlbum_id(album_id);// æ­Œæ›²æ‰€å±ä¸“è¾‘çš„ç¼–å·
+                m.setSize(size);// æ­Œæ›²çš„å¤§å°
+                m.setTime(time);// æ­Œæ›²çš„æ—¶é•¿
+                m.setUrl(url);// æ­Œæ›²å­˜æ”¾çš„è·¯å¾„
+                m.setName(name);// æ­Œæ›²åï¼ŒåŒ…å«åç¼€
+                musicList.add(m);// å°†æ­Œæ›²æ·»åŠ åˆ°é›†åˆä¸­
             }
         }
-        cursor.close();// ¹Ø±ÕÓÎ±ê
+        cursor.close();// å…³é—­æ¸¸æ ‡
         return musicList;
     }
 
@@ -110,12 +110,12 @@ public class MusicUtils {
 
     public static Bitmap getAlbumPic(Context context, Music music) {
 
-        ContentResolver mResolver = context.getContentResolver();// »ñÈ¡ÄÚÈİ½âÎöÆ÷
+        ContentResolver mResolver = context.getContentResolver();// è·å–å†…å®¹è§£æå™¨
         Uri uri = ContentUris.withAppendedId(Constants.ALBUM_URL, music.getAlbum_id());
         try {
             InputStream inputStream = mResolver.openInputStream(uri);
             return BitmapFactory.decodeStream(inputStream);
-        } catch (FileNotFoundException ex) {// Èç¹û²»´æÔÚÔòÅ×³öÒì³£
+        } catch (FileNotFoundException ex) {// å¦‚æœä¸å­˜åœ¨åˆ™æŠ›å‡ºå¼‚å¸¸
             try {
                 ParcelFileDescriptor pfd = mResolver.openFileDescriptor(uri, "r");
                 if (pfd != null) {
@@ -132,11 +132,11 @@ public class MusicUtils {
 
 
 
-    public static String timeToString(int time) {// Ê±¼ä¸ñÊ½×ª»»£¬½«ºÁÃë×ª»»³É·ÖÃëµÄĞÎÊ½
-        int temp = time / 1000;// ½«ºÁÃë×ª»»³ÉÃë
-        int minute = temp / 60;// ¼ÆËãÒ»¹²ÓĞ¶àÉÙ·Ö
-        int second = temp % 60;// ³ıÁËÕâĞ©·Öºó£¬»¹Ê£¶àÉÙÃë
-        return String.format("%02d:%02d", minute, second);// ÒÔ·ÖÃëµÄĞÎÊ½ÏÔÊ¾
+    public static String timeToString(int time) {// æ—¶é—´æ ¼å¼è½¬æ¢ï¼Œå°†æ¯«ç§’è½¬æ¢æˆåˆ†ç§’çš„å½¢å¼
+        int temp = time / 1000;// å°†æ¯«ç§’è½¬æ¢æˆç§’
+        int minute = temp / 60;// è®¡ç®—ä¸€å…±æœ‰å¤šå°‘åˆ†
+        int second = temp % 60;// é™¤äº†è¿™äº›åˆ†åï¼Œè¿˜å‰©å¤šå°‘ç§’
+        return String.format("%02d:%02d", minute, second);// ä»¥åˆ†ç§’çš„å½¢å¼æ˜¾ç¤º
     }
 
 }

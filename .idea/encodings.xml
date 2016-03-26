@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/Utils/CommonUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/Utils/DatabaseHelper.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/Utils/DateTime.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/Utils/MusicUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/Utils/MyOrientationListener.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/Utils/MySqlOpenHelper.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/Utils/SharedPreferencesUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/activity/BaiDuActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/bean/ServerURL.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/fragment/MenuRightFragment.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/view/CustomProgressDialog.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/view/FooterLoadingLayout.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/view/HeaderLoadingLayout.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/view/ILoadingLayout.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/view/IPullToRefresh.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/view/LoadingLayout.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android/bishe/view/PullToRefreshBase.java" charset="UTF-8" />
+  </component>
+</project>

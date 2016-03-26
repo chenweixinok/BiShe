@@ -135,7 +135,7 @@ public class MusicActivity extends FragmentActivity implements View.OnClickListe
         singTitle = (TextView) findViewById(R.id.singerTitle);
         singer = (TextView) findViewById(R.id.singer);
         musicImg = (ImageView) findViewById(R.id.songIcon);
-        musicImg.setImageBitmap(ImageUtil.toRoundBitmap(convertResToBm(R.drawable.background)));
+        musicImg.setImageBitmap(ImageUtil.toRoundBitmap(convertResToBm(R.drawable.json160)));
 
 
         lrcView = (LrcView) findViewById(R.id.music_LrcView);

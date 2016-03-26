@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/titlebar"
+        android:background="#48b775"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_icon_image"
+            android:id="@+id/imageView4"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="53dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="游客"
+            android:textSize="15sp"
+            android:id="@+id/textView8"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/imageView4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="“ 编辑个性签名"
+            android:layout_alignBottom="@+id/imageView4"
+            android:layout_alignStart="@+id/textView8" />
+    </RelativeLayout>
+    <android.bishe.view.PullToRefreshListView
+        android:layout_width="match_parent"
+        android:id="@+id/refresh"
+        android:divider="@null"
+        android:layout_margin="5dp"
+        android:layout_above="@+id/weather_bottom"
+        android:layout_below="@+id/titlebar"
+        android:layout_height="match_parent">
+    </android.bishe.view.PullToRefreshListView>
+
+
+    <RelativeLayout
+        android:id="@+id/weather_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#48b775"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/city"
+                    style="@style/weacher_title"
+                    android:layout_width="wrap_content"
+                    android:padding="4dp"
+                    android:layout_height="wrap_content"
+                    android:text="----" />
+
+                <TextView
+                    android:id="@+id/weatherTemp"
+                    style="@style/weacher_title"
+                    android:layout_width="wrap_content"
+                    android:padding="4dp"
+                    android:layout_height="wrap_content"
+                    android:text="--" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/weather"
+                    style="@style/weacher_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="----" />
+
+                <ImageView
+                    android:id="@+id/weatherImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="30dp"
+                    android:src="@drawable/biz_plugin_weather_qing" />
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/wind"
+                    style="@style/weacher_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="--" />
+
+                <TextView
+                    android:id="@+id/l_hTemp"
+                    style="@style/weacher_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="--" />
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

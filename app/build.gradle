@@ -36,4 +36,13 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.1.1'
     compile files('libs/nineoldandroids-2.4.0.jar')
     compile files('libs/Msc.jar')
+    compile files('libs/xUtils.jar')
+    compile files('libs/gson-2.2.1.jar')
+    compile 'com.squareup.okhttp:okhttp:2.7.0'
+    compile files('libs/locSDK_6.23.jar')
+    compile files('libs/BaiduLBS_Android.jar')
 }
+
+
+
+

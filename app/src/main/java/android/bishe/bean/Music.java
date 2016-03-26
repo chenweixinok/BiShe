@@ -7,14 +7,14 @@ import java.io.Serializable;
  */
 public class Music implements Serializable {
     private static final long serialVersionUID=1;
-    private String title;//¸èÇúÎÄ¼ş±êÌâ
-    private String singer;//¸èÇúÑİ³ªÕß
-    private String album;//¸èÇú×¨¼­
-    private int album_id;//×¨¼­±àºÅ
-    private String url;//¸èÇúÎÄ¼şÂ·¾¶
-    private long size;//¸èÇúÎÄ¼ş´óĞ¡
-    private int time;//¸èÇúÎÄ¼şÊ±³¤£¬µ¥Î»ÎªºÁÃë
-    private String name;//¸èÇúÎÄ¼şÃû£¬°üº¬ºó×º
+    private String title;//æ­Œæ›²æ–‡ä»¶æ ‡é¢˜
+    private String singer;//æ­Œæ›²æ¼”å”±è€…
+    private String album;//æ­Œæ›²ä¸“è¾‘
+    private int album_id;//ä¸“è¾‘ç¼–å·
+    private String url;//æ­Œæ›²æ–‡ä»¶è·¯å¾„
+    private long size;//æ­Œæ›²æ–‡ä»¶å¤§å°
+    private int time;//æ­Œæ›²æ–‡ä»¶æ—¶é•¿ï¼Œå•ä½ä¸ºæ¯«ç§’
+    private String name;//æ­Œæ›²æ–‡ä»¶åï¼ŒåŒ…å«åç¼€
 
     public int getAlbum_id() {
         return album_id;
@@ -64,7 +64,7 @@ public class Music implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    public String toString() {//ÏÔÊ¾¸èÇúÃûºÍÑİ³ªÕß
+    public String toString() {//æ˜¾ç¤ºæ­Œæ›²åå’Œæ¼”å”±è€…
         return "Music [title=" + title + ", singer=" + singer + "]";
     }
 }

@@ -188,7 +188,7 @@ public class MusicService extends Service{
         } else {
             //MusicActivity.musicImg.setImageResource(R.drawable.background);
             MusicActivity.musicImg.setImageBitmap(ImageUtil
-                    .toRoundBitmap(convertResToBm(R.drawable.background)));
+                    .toRoundBitmap(convertResToBm(R.drawable.json160)));
 
 
 

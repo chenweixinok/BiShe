@@ -9,31 +9,31 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final int  VERSON = 1;//Ä¬ÈÏµÄÊı¾İ¿â°æ±¾
+    private static final int  VERSON = 1;//é»˜è®¤çš„æ•°æ®åº“ç‰ˆæœ¬
 
-    //¼Ì³ĞSQLiteOpenHelperÀàµÄÀà±ØĞëÓĞ×Ô¼ºµÄ¹¹Ôìº¯Êı
-    //¸Ã¹¹Ôìº¯Êı4¸ö²ÎÊı£¬Ö±½Óµ÷ÓÃ¸¸ÀàµÄ¹¹Ôìº¯Êı¡£ÆäÖĞµÚÒ»¸ö²ÎÊıÎª¸ÃÀà±¾Éí£»µÚ¶ş¸ö²ÎÊıÎªÊı¾İ¿âµÄÃû×Ö£»
-    //µÚ3¸ö²ÎÊıÊÇÓÃÀ´ÉèÖÃÓÎ±ê¶ÔÏóµÄ£¬ÕâÀïÒ»°ãÉèÖÃÎªnull£»²ÎÊıËÄÊÇÊı¾İ¿âµÄ°æ±¾ºÅ¡£
+    //ç»§æ‰¿SQLiteOpenHelperç±»çš„ç±»å¿…é¡»æœ‰è‡ªå·±çš„æ„é€ å‡½æ•°
+    //è¯¥æ„é€ å‡½æ•°4ä¸ªå‚æ•°ï¼Œç›´æ¥è°ƒç”¨çˆ¶ç±»çš„æ„é€ å‡½æ•°ã€‚å…¶ä¸­ç¬¬ä¸€ä¸ªå‚æ•°ä¸ºè¯¥ç±»æœ¬èº«ï¼›ç¬¬äºŒä¸ªå‚æ•°ä¸ºæ•°æ®åº“çš„åå­—ï¼›
+    //ç¬¬3ä¸ªå‚æ•°æ˜¯ç”¨æ¥è®¾ç½®æ¸¸æ ‡å¯¹è±¡çš„ï¼Œè¿™é‡Œä¸€èˆ¬è®¾ç½®ä¸ºnullï¼›å‚æ•°å››æ˜¯æ•°æ®åº“çš„ç‰ˆæœ¬å·ã€‚
     public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int verson){
         super(context, name, factory, verson);
     }
 
-    //¸Ã¹¹Ôìº¯ÊıÓĞ3¸ö²ÎÊı£¬ÒòÎªËü°ÑÉÏÃæº¯ÊıµÄµÚ3¸ö²ÎÊı¹Ì¶¨ÎªnullÁË
+    //è¯¥æ„é€ å‡½æ•°æœ‰3ä¸ªå‚æ•°ï¼Œå› ä¸ºå®ƒæŠŠä¸Šé¢å‡½æ•°çš„ç¬¬3ä¸ªå‚æ•°å›ºå®šä¸ºnulläº†
     public DatabaseHelper(Context context, String name, int verson){
         this(context, name, null, verson);
     }
 
-    //¸Ã¹¹Ôìº¯ÊıÖ»ÓĞ2¸ö²ÎÊı£¬ÔÚÉÏÃæº¯Êı µÄ»ù´¡É½½«°æ±¾ºÅ¹Ì¶¨ÁË
+    //è¯¥æ„é€ å‡½æ•°åªæœ‰2ä¸ªå‚æ•°ï¼Œåœ¨ä¸Šé¢å‡½æ•° çš„åŸºç¡€å±±å°†ç‰ˆæœ¬å·å›ºå®šäº†
     public DatabaseHelper(Context context, String name){
         this(context, name, VERSON);
     }
 
-    //¸Ãº¯ÊıÔÚÊı¾İ¿âµÚÒ»´Î±»½¨Á¢Ê±µ÷ÓÃ
+    //è¯¥å‡½æ•°åœ¨æ•°æ®åº“ç¬¬ä¸€æ¬¡è¢«å»ºç«‹æ—¶è°ƒç”¨
     @Override
     public void onCreate(SQLiteDatabase arg0) {
         // TODO Auto-generated method stub
         System.out.println("create a sqlite database");
-        //execSQL()ÎªÖ´ĞĞ²ÎÊıÀïÃæµÄSQLÓï¾ä£¬Òò´Ë²ÎÊıÖĞµÄÓï¾äĞèÒª·ûºÏSQLÓï·¨,ÕâÀïÊÇ´´½¨Ò»¸ö±í
+        //execSQL()ä¸ºæ‰§è¡Œå‚æ•°é‡Œé¢çš„SQLè¯­å¥ï¼Œå› æ­¤å‚æ•°ä¸­çš„è¯­å¥éœ€è¦ç¬¦åˆSQLè¯­æ³•,è¿™é‡Œæ˜¯åˆ›å»ºä¸€ä¸ªè¡¨
         arg0.execSQL("CREATE TABLE t_user(id INTEGER PRIMARY KEY, username VARCHAR(20), password VARCHAR(20))");
     }
 
