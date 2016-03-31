@@ -19,7 +19,7 @@ import android.widget.VideoView;
  */
 public class SelectAct extends Activity implements View.OnClickListener {
 
-    private Button s_delete, s_back;
+    private ImageView s_delete,s_back;
     private ImageView s_img;
     private VideoView s_video;
     private TextView s_tv;
@@ -32,15 +32,15 @@ public class SelectAct extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select);
 
-        s_delete = (Button) findViewById(R.id.s_delete);
-        s_back = (Button) findViewById(R.id.s_back);
+        s_delete = (ImageView) findViewById(R.id.s_delete);
+        s_back = (ImageView) findViewById(R.id.back_dray);
         s_img = (ImageView) findViewById(R.id.s_img);
         s_video = (VideoView) findViewById(R.id.s_video);
         s_tv = (TextView) findViewById(R.id.s_tv);
         notesDB = new NotesDB(this);
         dbWriter = notesDB.getWritableDatabase();
-        s_back.setOnClickListener(this);
         s_delete.setOnClickListener(this);
+        s_back.setOnClickListener(this);
 
 
 
@@ -74,8 +74,7 @@ public class SelectAct extends Activity implements View.OnClickListener {
                 deleteDate();
                 finish();
                 break;
-
-            case R.id.s_back:
+            case R.id.back_dray:
                 finish();
                 break;
         }

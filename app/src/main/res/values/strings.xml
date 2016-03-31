@@ -65,6 +65,6 @@
     <string name="pull_to_refresh_no_more_data">@string/pushmsg_center_no_more_msg</string>
     <string name="pull_to_refresh_network_error">网络不给力，请检查网络</string>
 
-    <string name="title_activity_bai_du">BaiDuActivity</string>
+    <string name="title_activity_bai_du">百度地图</string>
 
 </resources>

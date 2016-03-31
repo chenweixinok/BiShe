@@ -8,11 +8,13 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by Lenovo on 2016/3/6.
@@ -56,8 +58,8 @@ public class AddClassActivity extends Activity {
                 Spinner s_classes = (Spinner) findViewById(R.id.spinner_classes);
                 ContentValues values = new ContentValues();
                 values.put("course", e_course.getText().toString());
-                values.put("teacher", e_teacher.getText().toString());
-                values.put("place", e_place.getText().toString());
+                values.put("teacher", "教师:" + e_teacher.getText().toString());
+                values.put("place", "地点:" + e_place.getText().toString());
                 values.put("color", returnColor(s_color.getSelectedItem().toString()));
                 // 参数1为表名，参数2为更新后的值，参数3表示满足条件的列名称，参数4为该列名下的值
                 String week=returnWeek(s_week.getSelectedItem().toString());
@@ -113,7 +115,7 @@ public class AddClassActivity extends Activity {
 
     public int returnColor(String color){
         switch (color) {
-            case "深蓝色":
+            case "浅粉色":
                 return 0;
             case "橙色":
                 return 1;
@@ -132,6 +134,17 @@ public class AddClassActivity extends Activity {
             default:
                 return 0;
         }
+    }
+
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            return  true;
+        }
+        return  super.onKeyDown(keyCode, event);
+
     }
 
 

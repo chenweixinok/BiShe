@@ -1,77 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@drawable/special_bg">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/biankuang">
 
-        <LinearLayout
-            android:id="@+id/linearlayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_weight="3"
-                android:layout_margin="5dp"
-                android:layout_height="wrap_content">
+
+
+
                 <ImageView
                     android:id="@+id/pic31_iv1"
                     android:scaleType="centerCrop"
                     android:layout_width="200dp"
-                    android:layout_height="160dp"
-                    android:src="@mipmap/ic_launcher" />
-            </RelativeLayout>
+                    android:layout_height="100dp"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="3"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:orientation="vertical">
+
+
                 <ImageView
                     android:id="@+id/pic31_iv2"
-                    android:layout_width="match_parent"
-                    android:layout_height="78dp"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
                     android:scaleType="centerCrop"
-                    android:layout_alignLeft="@+id/iv3"
-                    android:layout_alignStart="@+id/iv3"
-                    android:layout_below="@+id/iv3"
-                    android:src="@mipmap/ic_launcher" />
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="79dp"
-                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="3dp"
+                    android:layout_alignParentEnd="true" />
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:scaleType="centerCrop"
                     android:id="@+id/pic31_iv3"
-                    android:layout_toEndOf="@+id/iv1"
-                    android:layout_toRightOf="@+id/iv1"
-                    android:src="@mipmap/ic_launcher" />
-            </LinearLayout>
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_alignBottom="@+id/pic31_iv1"
+                    android:layout_alignParentEnd="true" />
 
-        </LinearLayout>
 
         <TextView
             android:id="@+id/pic31_tv"
             style="@style/text_itempic1"
-            android:layout_below="@+id/linearlayout"
             android:text="把这东西放孩子衣柜里太危险!"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:maxEms="20"
+            android:layout_below="@+id/pic31_iv3"
+            android:layout_alignEnd="@+id/pic31_iv1" />
 
-        <View
-            android:id="@+id/view"
-            style="@style/view_item"
-            android:layout_below="@+id/pic31_tv" />
 
         <TextView
             style="@style/text_source"
             android:id="@+id/pic31_source"
-            android:layout_below="@+id/view"
-            android:text="嘻嘻哈哈" />
-    </RelativeLayout>
+            android:text="嘻嘻哈哈"
+            android:layout_alignBottom="@+id/pic31_tv"
+            android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

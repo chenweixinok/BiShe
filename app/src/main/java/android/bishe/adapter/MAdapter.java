@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,6 +23,8 @@ public class MAdapter extends BaseAdapter{
     private Context mContext = null;
     public Cursor mCursor = null;
     private LayoutInflater mInflater;
+
+
 
     public MAdapter(Context context, Cursor cursor) {
         mContext = context;
@@ -76,9 +79,16 @@ public class MAdapter extends BaseAdapter{
         holder.holderContent.setText(content);
         holder.holderTime.setText(time);
         holder.holderID.setText(id);
-        holder.holderVedioImg.setImageBitmap(getVideoThumbnail(urlvideo, 200, 200,
+
+        WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+
+        int width = wm.getDefaultDisplay().getWidth() - 60;
+        int height = wm.getDefaultDisplay().getHeight();
+
+
+        holder.holderVedioImg.setImageBitmap(getVideoThumbnail(urlvideo, width, 200,
                 MediaStore.Images.Thumbnails.MICRO_KIND));
-        holder.holderImg.setImageBitmap(getImageThumbnail(url, 200, 200));
+        holder.holderImg.setImageBitmap(getImageThumbnail(url, width, 200));
         return convertView;
     }
 

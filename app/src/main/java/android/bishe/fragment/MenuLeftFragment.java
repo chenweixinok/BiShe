@@ -111,7 +111,7 @@ public class MenuLeftFragment extends Fragment{
 		mTodayWeatherImage = (ImageView) inflate.findViewById(R.id.weatherImage);
 		mTodayTemperatureTV = (TextView) inflate.findViewById(R.id.weatherTemp);
 		mTodayWindTV = (TextView) inflate.findViewById(R.id.wind);
-		mTodayWeatherTV = (TextView) inflate.findViewById(R.id.weather);
+		//mTodayWeatherTV = (TextView) inflate.findViewById(R.id.weather);
 		mCityTV = (TextView) inflate.findViewById(R.id.city);
 
 		L_Htemp = (TextView) inflate.findViewById(R.id.l_hTemp);
@@ -355,7 +355,7 @@ public class MenuLeftFragment extends Fragment{
 				String sunrise = resultJsonObject.getString("sunrise");
 				String sunset = resultJsonObject.getString("sunset");
 
-				mTodayWeatherTV.setText(weather);
+				//mTodayWeatherTV.setText(weather);
 				L_Htemp.setText("海拨:"+altitude+"米");
 				mTodayWindTV.setText(wind);
 				mTodayWeatherImage.setImageResource(getWeatherImage(weather));

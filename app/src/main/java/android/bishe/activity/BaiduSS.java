@@ -34,12 +34,12 @@ public class BaiduSS extends Activity{
 
         webView.setVerticalScrollbarOverlay(true);
 
-        //ÍøÒ³ÖĞ°üº¬JavaScriptÄÚÈİĞèµ÷ÓÃÒÔÏÂ·½·¨£¬²ÎÊıÎªtrue
+        //ç½‘é¡µä¸­åŒ…å«JavaScriptå†…å®¹éœ€è°ƒç”¨ä»¥ä¸‹æ–¹æ³•ï¼Œå‚æ•°ä¸ºtrue
         webView.getSettings().setJavaScriptEnabled(true);
 
-        //³öÏÖnet::ERR_CACHE_MISS´íÎóÌáÊ¾
-        //Ê¹ÓÃ»º´æµÄ·½Ê½ÊÇ»ùÓÚµ¼º½ÀàĞÍ¡£Õı³£Ò³Ãæ¼ÓÔØµÄÇé¿öÏÂ½«»º´æÄÚÈİ¡£µ±µ¼º½·µ»Ø,
-        //ÄÚÈİ²»»á»Ö¸´£¨ÖØĞÂ¼ÓÔØÉú³É£©,¶øÖ»ÊÇ´Ó»º´æÖĞÈ¡»ØÄÚÈİ
+        //å‡ºç°net::ERR_CACHE_MISSé”™è¯¯æç¤º
+        //ä½¿ç”¨ç¼“å­˜çš„æ–¹å¼æ˜¯åŸºäºå¯¼èˆªç±»å‹ã€‚æ­£å¸¸é¡µé¢åŠ è½½çš„æƒ…å†µä¸‹å°†ç¼“å­˜å†…å®¹ã€‚å½“å¯¼èˆªè¿”å›,
+        //å†…å®¹ä¸ä¼šæ¢å¤ï¼ˆé‡æ–°åŠ è½½ç”Ÿæˆï¼‰,è€Œåªæ˜¯ä»ç¼“å­˜ä¸­å–å›å†…å®¹
         if (Build.VERSION.SDK_INT >= 19) {
             webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
 
@@ -60,7 +60,7 @@ public class BaiduSS extends Activity{
 
 
 
-    //ÖØĞ´onKeyDown(keyCode, event)·½·¨ ¸ÄĞ´ÎïÀí°´¼ü ·µ»ØµÄÂß¼­
+    //é‡å†™onKeyDown(keyCode, event)æ–¹æ³• æ”¹å†™ç‰©ç†æŒ‰é”® è¿”å›çš„é€»è¾‘
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
@@ -68,12 +68,12 @@ public class BaiduSS extends Activity{
         {
             if(webView.canGoBack())
             {
-                webView.goBack();//·µ»ØÉÏÒ»Ò³Ãæ
+                webView.goBack();//è¿”å›ä¸Šä¸€é¡µé¢
                 return true;
             }
             else
             {
-                finish();//ÍË³ö³ÌĞò
+                finish();//é€€å‡ºç¨‹åº
             }
         }
         return super.onKeyDown(keyCode, event);

@@ -1,30 +1,33 @@
 package android.bishe.fragment;
 
-import android.app.AlertDialog;
 import android.bishe.R;
 import android.bishe.Utils.NotesDB;
 import android.bishe.activity.AddContent;
 import android.bishe.activity.SelectAct;
 import android.bishe.adapter.MAdapter;
-import android.content.DialogInterface;
+import android.bishe.view.ArcMenu;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.MotionEvent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by Lenovo on 2015/12/24.
  */
-public class Diary extends Fragment implements View.OnClickListener {
+public class Diary extends Fragment{
 
 
     private Button textbtn, imgbtn, videobtn;
@@ -34,6 +37,38 @@ public class Diary extends Fragment implements View.OnClickListener {
     private NotesDB notesDB;
     private SQLiteDatabase mDbWriter = null;
     private Cursor cursor;
+
+    private ArcMenu mArcMenu;
+
+
+    Handler handler = new Handler(){
+
+        @Override
+        public void handleMessage(Message msg) {
+
+            intent = new Intent(getActivity(), AddContent.class);
+
+            switch (msg.what){
+                case 1:
+                    intent.putExtra("flag", "1");
+                    startActivity(intent);
+                    break;
+
+                case 2:
+                    intent.putExtra("flag", "2");
+                    startActivity(intent);
+                    break;
+
+                case 3:
+                    intent.putExtra("flag", "3");
+                    startActivity(intent);
+                    break;
+            }
+        };
+    };
+
+
+
 
     @Nullable
     @Override
@@ -47,19 +82,99 @@ public class Diary extends Fragment implements View.OnClickListener {
         super.onActivityCreated(savedInstanceState);
         initView();
 
+        initEvent();
+
+    }
+
+    private void initEvent() {
+
+        mArcMenu.setOnMenuItemClickListener(new ArcMenu.OnMenuItemClickListener() {
+            @Override
+            public void onClick(View view, int pos) {
+                Toast.makeText(getActivity(), pos + ":" + view.getTag(),
+                        Toast.LENGTH_SHORT).show();
+
+
+                final Message message = new Message();
+
+                switch (pos) {
+                    case 1:
+
+                        new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Thread.sleep(1000);
+                                    message.what = 1;
+                                    handler.sendMessage(message);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                        }.start();
+
+                        break;
+
+                    case 2:
+
+                        new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Thread.sleep(1000);
+                                    message.what = 2;
+                                    handler.sendMessage(message);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                        }.start();
+
+                        break;
+
+                    case 3:
+
+                        new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Thread.sleep(1000);
+                                    message.what = 3;
+                                    handler.sendMessage(message);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                        }.start();
+
+                        break;
+                }
+            }
+        });
     }
 
     private void initView() {
 
         listView = (ListView) getView().findViewById(R.id.list);
-        textbtn = (Button) getView().findViewById(R.id.text);
-        imgbtn = (Button) getView().findViewById(R.id.img);
-        videobtn = (Button) getView().findViewById(R.id.video);
-        textbtn.setOnClickListener(this);
-        imgbtn.setOnClickListener(this);
-        videobtn.setOnClickListener(this);
+        //textbtn = (Button) getView().findViewById(R.id.text);
+       // imgbtn = (Button) getView().findViewById(R.id.img);
+       // videobtn = (Button) getView().findViewById(R.id.video);
+       // textbtn.setOnClickListener(this);
+        //imgbtn.setOnClickListener(this);
+       // videobtn.setOnClickListener(this);
         notesDB = new NotesDB(getActivity());
         mDbWriter = notesDB.getWritableDatabase();
+
+
+
+
+        mArcMenu = (ArcMenu) getView().findViewById(R.id.id_right_bottom);
+
+
+
 
 
 
@@ -88,6 +203,7 @@ public class Diary extends Fragment implements View.OnClickListener {
 
     }
 
+    /**
     @Override
     public void onClick(View v) {
 
@@ -110,6 +226,9 @@ public class Diary extends Fragment implements View.OnClickListener {
         }
 
     }
+    **/
+
+
 
 
 
@@ -131,5 +250,8 @@ public class Diary extends Fragment implements View.OnClickListener {
         adapter = new MAdapter(getActivity(), cursor);
         listView.setAdapter(adapter);
     }
+
+
+
 
 }

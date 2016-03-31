@@ -13,10 +13,10 @@ import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -32,7 +32,7 @@ public class Schedule extends Fragment{
     private String databaseFilename = Environment
             .getExternalStorageDirectory() + "/timetable/timetable.db";
 
-    private int colors[] = { Color.rgb(0x48, 0xb7, 0x75),
+    private int colors[] = { Color.rgb(0xff, 0xb6, 0xc1),
             Color.rgb(0xf0, 0x96, 0x09), Color.rgb(0x8c, 0xbf, 0x26),
             Color.rgb(0x00, 0xab, 0xa9), Color.rgb(0x99, 0x6c, 0x33),
             Color.rgb(0x3b, 0x92, 0xbc), Color.rgb(0xd5, 0x4d, 0x34),
@@ -118,7 +118,7 @@ public class Schedule extends Fragment{
                 intent.setClass(getActivity(), AddClassActivity.class);
                 getActivity().startActivity(intent);
                 //overridePendingTransition(R.anim.fade, R.anim.hold);
-                getActivity().finish();
+               // getActivity().finish();
             }
         });
     }
@@ -152,8 +152,8 @@ public class Schedule extends Fragment{
         view.setMinimumHeight(dip2px(getActivity(), classes * 48));
         view.setBackgroundColor(colors[color]);
         ((TextView) view.findViewById(R.id.course)).setText(course);
-        ((TextView) view.findViewById(R.id.teacher)).setText("教师："+teacher);
-        ((TextView) view.findViewById(R.id.place)).setText("地点：" + place);
+        ((TextView) view.findViewById(R.id.teacher)).setText(teacher);
+        ((TextView) view.findViewById(R.id.place)).setText(place);
         // 为课程View设置点击的监听器
         layout.addView(view);
         TextView blank = new TextView(getActivity());

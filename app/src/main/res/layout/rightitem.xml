@@ -16,11 +16,11 @@
         android:layout_height="70dp"
         android:layout_alignParentRight="true"
         android:padding="10dp"
-        android:src="@drawable/dianhua"/>
+        android:src="@drawable/xiaotoux"/>
     
     <TextView 
         android:layout_below="@id/time"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="30dp"
         android:layout_toLeftOf="@id/iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

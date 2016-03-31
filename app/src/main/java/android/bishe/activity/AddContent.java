@@ -99,7 +99,7 @@ public class AddContent extends Activity implements View.OnClickListener {
                 finish();
                 break;
         }
-        
+
     }
 
 
@@ -132,6 +132,7 @@ public class AddContent extends Activity implements View.OnClickListener {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 1) {
+
             Bitmap bitmap = BitmapFactory.decodeFile(phoneFile
                     .getAbsolutePath());
             c_img.setImageBitmap(bitmap);

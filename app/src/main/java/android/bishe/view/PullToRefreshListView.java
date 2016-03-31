@@ -17,15 +17,15 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
 
     /**ListView*/
     private ListView mListView;
-    /**ÓÃÓÚ»¬µ½µ×²¿×Ô¶¯¼ÓÔØµÄFooter*/
+    /**ç”¨äºæ»‘åˆ°åº•éƒ¨è‡ªåŠ¨åŠ è½½çš„Footer*/
     private LoadingLayout mLoadMoreFooterLayout;
-    /**¹ö¶¯µÄ¼àÌıÆ÷*/
+    /**æ»šåŠ¨çš„ç›‘å¬å™¨*/
     private OnScrollListener mScrollListener;
 
 
 
     /**
-     * ¹¹Ôì·½·¨
+     * æ„é€ æ–¹æ³•
      *
      * @param context context
      */
@@ -34,7 +34,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     /**
-     * ¹¹Ôì·½·¨
+     * æ„é€ æ–¹æ³•
      *
      * @param context context
      * @param attrs attrs
@@ -44,7 +44,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     /**
-     * ¹¹Ôì·½·¨
+     * æ„é€ æ–¹æ³•
      *
      * @param context context
      * @param attrs attrs
@@ -71,9 +71,9 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     /**
-     * ÉèÖÃÊÇ·ñÓĞ¸ü¶àÊı¾İµÄ±êÖ¾
+     * è®¾ç½®æ˜¯å¦æœ‰æ›´å¤šæ•°æ®çš„æ ‡å¿—
      *
-     * @param hasMoreData true±íÊ¾»¹ÓĞ¸ü¶àµÄÊı¾İ£¬false±íÊ¾Ã»ÓĞ¸ü¶àÊı¾İÁË
+     * @param hasMoreData trueè¡¨ç¤ºè¿˜æœ‰æ›´å¤šçš„æ•°æ®ï¼Œfalseè¡¨ç¤ºæ²¡æœ‰æ›´å¤šæ•°æ®äº†
      */
     public void setHasMoreData(boolean hasMoreData) {
         if (!hasMoreData) {
@@ -89,9 +89,9 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     /**
-     * ÉèÖÃ»¬¶¯µÄ¼àÌıÆ÷
+     * è®¾ç½®æ»‘åŠ¨çš„ç›‘å¬å™¨
      *
-     * @param l ¼àÌıÆ÷
+     * @param l ç›‘å¬å™¨
      */
     public void setOnScrollListener(OnScrollListener l) {
         mScrollListener = l;
@@ -130,7 +130,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         super.setScrollLoadEnabled(scrollLoadEnabled);
 
         if (scrollLoadEnabled) {
-            // ÉèÖÃFooter
+            // è®¾ç½®Footer
             if (null == mLoadMoreFooterLayout) {
                 mLoadMoreFooterLayout = new FooterLoadingLayout(getContext());
             }
@@ -185,9 +185,9 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
 
 
     /**
-     * ±íÊ¾ÊÇ·ñ»¹ÓĞ¸ü¶àÊı¾İ
+     * è¡¨ç¤ºæ˜¯å¦è¿˜æœ‰æ›´å¤šæ•°æ®
      *
-     * @return true±íÊ¾»¹ÓĞ¸ü¶àÊı¾İ
+     * @return trueè¡¨ç¤ºè¿˜æœ‰æ›´å¤šæ•°æ®
      */
     private boolean hasMoreData() {
         if ((null != mLoadMoreFooterLayout) && (mLoadMoreFooterLayout.getState() == State.NO_MORE_DATA)) {
@@ -198,9 +198,9 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     /**
-     * ÅĞ¶ÏµÚÒ»¸öchildÊÇ·ñÍêÈ«ÏÔÊ¾³öÀ´
+     * åˆ¤æ–­ç¬¬ä¸€ä¸ªchildæ˜¯å¦å®Œå…¨æ˜¾ç¤ºå‡ºæ¥
      *
-     * @return trueÍêÈ«ÏÔÊ¾³öÀ´£¬·ñÔòfalse
+     * @return trueå®Œå…¨æ˜¾ç¤ºå‡ºæ¥ï¼Œå¦åˆ™false
      */
     private boolean isFirstItemVisible() {
         final Adapter adapter = mListView.getAdapter();
@@ -218,9 +218,9 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     /**
-     * ÅĞ¶Ï×îºóÒ»¸öchildÊÇ·ñÍêÈ«ÏÔÊ¾³öÀ´
+     * åˆ¤æ–­æœ€åä¸€ä¸ªchildæ˜¯å¦å®Œå…¨æ˜¾ç¤ºå‡ºæ¥
      *
-     * @return trueÍêÈ«ÏÔÊ¾³öÀ´£¬·ñÔòfalse
+     * @return trueå®Œå…¨æ˜¾ç¤ºå‡ºæ¥ï¼Œå¦åˆ™false
      */
     private boolean isLastItemVisible() {
         final Adapter adapter = mListView.getAdapter();

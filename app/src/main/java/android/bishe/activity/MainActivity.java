@@ -147,7 +147,7 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_content, diary)
                         .commit();
 
-                title.setText("个人日志");
+                title.setText("日志");
                 break;
 
             case R.id.rb_sort:
@@ -156,7 +156,7 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_content, tlXiaoJingLing)
                         .commit();
 
-                title.setText("图灵机器人");
+                title.setText("聊天");
                 break;
 
             case R.id.rb_topic:

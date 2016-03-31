@@ -291,7 +291,7 @@ public class MusicActivity extends FragmentActivity implements View.OnClickListe
             skbProgress.setMax(musicList.get(current1).getTime());
             switch (update) {
                 case 0x11: {
-                    play.setImageResource(R.drawable.playing_button);
+                    play.setImageResource(R.drawable.playing_btn);
                     status = 0x11;
                     break;
                 }
@@ -299,14 +299,14 @@ public class MusicActivity extends FragmentActivity implements View.OnClickListe
                 // 控制系统进入播放状态
                 case 0x12: {
                     // 播放状态下设置使用按钮
-                    play.setImageResource(R.drawable.pause_button);
+                    play.setImageResource(R.drawable.pause_btn);
                     // 设置当前状态
                     status = 0x12;
                     break;
                 }
                 // 控制系统进入暂停状态
                 case 0x13: {
-                    play.setImageResource(R.drawable.playing_button);
+                    play.setImageResource(R.drawable.playing_btn);
                     status = 0x13;
                     break;
                 }
@@ -341,9 +341,10 @@ public class MusicActivity extends FragmentActivity implements View.OnClickListe
             TextView time = (TextView) convertView.findViewById(R.id.music_time);// 显示时间的控件
             Bitmap bitmap = MusicUtils.getAlbumPic(getApplicationContext(), musicList.get(position));//显示专辑图片的控件
             if (bitmap != null) {//如果专辑图片不为空，则显示；如果为空，则显示默认图片
-                icon.setImageBitmap(bitmap);
+                icon.setImageBitmap(ImageUtil.toRoundBitmap(bitmap));
             } else {
-                icon.setImageResource(R.drawable.dianhua);//显示默认的图片
+                icon.setImageResource(R.drawable.musicimg);//显示默认的图片
+                //icon.setImageBitmap(ImageUtil.toRoundBitmap(convertResToBm(R.drawable.dianhua)));
             }
             title.setText(musicList.get(position).getTitle());
             artist.setText(musicList.get(position).getSinger());
