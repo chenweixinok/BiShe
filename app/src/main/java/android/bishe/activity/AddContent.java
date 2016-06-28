@@ -42,29 +42,30 @@ public class AddContent extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addcontent);
-        val = getIntent().getStringExtra("flag");
+       // val = getIntent().getStringExtra("flag");
 
         savebtn = (Button) findViewById(R.id.save);
         deletebtn = (Button) findViewById(R.id.delete);
 
         ettext = (EditText) findViewById(R.id.ettext);
-        c_img = (ImageView) findViewById(R.id.c_img);
-        v_video = (VideoView) findViewById(R.id.c_video);
+      //  c_img = (ImageView) findViewById(R.id.c_img);
+       // v_video = (VideoView) findViewById(R.id.c_video);
 
         savebtn.setOnClickListener(this);
         deletebtn.setOnClickListener(this);
 
         notesDB = new NotesDB(this);
         dbWriter = notesDB.getWritableDatabase();
-        initView();
+        //initView();
     }
 
     private void initView() {
 
-        if (val.equals("1")) { // 文字
-            c_img.setVisibility(View.GONE);
-            v_video.setVisibility(View.GONE);
-        }
+       // if (val.equals("1")) { // 文字
+           // c_img.setVisibility(View.GONE);
+         //   v_video.setVisibility(View.GONE);
+       // }
+        /*
         if (val.equals("2")) {
             c_img.setVisibility(View.VISIBLE);
             v_video.setVisibility(View.GONE);
@@ -84,6 +85,7 @@ public class AddContent extends Activity implements View.OnClickListener {
             video.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(videoFile));
             startActivityForResult(video, 2);
         }
+        */
     }
 
     @Override
@@ -131,15 +133,5 @@ public class AddContent extends Activity implements View.OnClickListener {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 1) {
-
-            Bitmap bitmap = BitmapFactory.decodeFile(phoneFile
-                    .getAbsolutePath());
-            c_img.setImageBitmap(bitmap);
-        }
-        if (requestCode == 2) {
-            v_video.setVideoURI(Uri.fromFile(videoFile));
-            v_video.start();
-        }
     }
 }

@@ -94,8 +94,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="东北风"
-            android:textSize="30sp"
-            android:layout_marginEnd="33dp"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp"
             android:layout_alignBottom="@+id/weatherTemp"
             android:layout_alignParentEnd="true" />
 
@@ -103,9 +103,11 @@
             android:id="@+id/l_hTemp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="海拨：131米"
+            android:text="晴"
+            android:textSize="15sp"
             android:layout_below="@+id/wind"
-            android:layout_alignStart="@+id/wind" />
+            android:layout_alignEnd="@+id/wind"
+            android:layout_marginRight="20dp"/>
 
 
     </RelativeLayout>

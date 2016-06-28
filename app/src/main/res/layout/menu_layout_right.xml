@@ -17,7 +17,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="百度搜索"
+        android:text="搜索助手"
         android:textColor="#ffffff"
         android:id="@+id/text_Baidu_SS"
         android:layout_below="@+id/textMap"
@@ -26,7 +26,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="百度地图"
+        android:text="地图查看"
         android:id="@+id/textMap"
         android:textColor="#ffffff"
         android:layout_centerVertical="true"

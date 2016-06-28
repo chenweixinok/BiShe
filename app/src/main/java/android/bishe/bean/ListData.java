@@ -7,10 +7,11 @@ package android.bishe.bean;
  */
 
 public class ListData {
-    private String content;
 
     public static final int SEND=1;
     public static final int RECEIVER=2;
+
+    private String content;
     private int flag;
     private String Time;
 

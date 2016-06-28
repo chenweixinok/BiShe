@@ -337,8 +337,6 @@ public class MenuLeftFragment extends Fragment{
 		protected void onPostExecute(String result) {
 
 
-
-			String s = "";
 			try {
 
 
@@ -356,7 +354,7 @@ public class MenuLeftFragment extends Fragment{
 				String sunset = resultJsonObject.getString("sunset");
 
 				//mTodayWeatherTV.setText(weather);
-				L_Htemp.setText("海拨:"+altitude+"米");
+				L_Htemp.setText(weather);
 				mTodayWindTV.setText(wind);
 				mTodayWeatherImage.setImageResource(getWeatherImage(weather));
 				mCityTV.setText(city);

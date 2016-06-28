@@ -261,9 +261,9 @@ public class BaiDuActivity extends ActionBarActivity {
 
 
 
-    // 定位到我的位置
+      // 定位到我的位置
     private void centerToMyLocation() {
-        LatLng latlng = new LatLng(mLatitude, mLongitude);
+            LatLng latlng = new LatLng(mLatitude, mLongitude);
         MapStatusUpdate msu = MapStatusUpdateFactory.newLatLng(latlng);
         mBaiduMap.animateMapStatus(msu);
 

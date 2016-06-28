@@ -39,9 +39,9 @@ public class AddClassActivity extends Activity {
         t_timetable.setFocusable(true);
         t_timetable.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(AddClassActivity.this, MainActivity.class);
-                AddClassActivity.this.startActivity(intent);
+               // Intent intent = new Intent();
+               // intent.setClass(AddClassActivity.this, MainActivity.class);
+               // AddClassActivity.this.startActivity(intent);
                 overridePendingTransition(R.anim.fade, R.anim.hold);
                 AddClassActivity.this.finish();
             }

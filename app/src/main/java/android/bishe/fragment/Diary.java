@@ -12,7 +12,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.MotionEvent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -22,15 +21,17 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 /**
  * Created by Lenovo on 2015/12/24.
  */
-public class Diary extends Fragment{
+public class Diary extends Fragment implements View.OnClickListener {
 
 
     private Button textbtn, imgbtn, videobtn;
+    private RelativeLayout mRelativeLayout;
     private ListView listView;
     private Intent intent;
     private MAdapter adapter;
@@ -41,6 +42,7 @@ public class Diary extends Fragment{
     private ArcMenu mArcMenu;
 
 
+    /*
     Handler handler = new Handler(){
 
         @Override
@@ -66,6 +68,7 @@ public class Diary extends Fragment{
             }
         };
     };
+    */
 
 
 
@@ -82,10 +85,12 @@ public class Diary extends Fragment{
         super.onActivityCreated(savedInstanceState);
         initView();
 
-        initEvent();
+        //initEvent();
 
     }
 
+
+    /*
     private void initEvent() {
 
         mArcMenu.setOnMenuItemClickListener(new ArcMenu.OnMenuItemClickListener() {
@@ -154,24 +159,18 @@ public class Diary extends Fragment{
                 }
             }
         });
-    }
+    }  */
 
     private void initView() {
 
         listView = (ListView) getView().findViewById(R.id.list);
-        //textbtn = (Button) getView().findViewById(R.id.text);
-       // imgbtn = (Button) getView().findViewById(R.id.img);
-       // videobtn = (Button) getView().findViewById(R.id.video);
-       // textbtn.setOnClickListener(this);
-        //imgbtn.setOnClickListener(this);
-       // videobtn.setOnClickListener(this);
         notesDB = new NotesDB(getActivity());
         mDbWriter = notesDB.getWritableDatabase();
+        mRelativeLayout = (RelativeLayout) getView().findViewById(R.id.tianjia);
+        mRelativeLayout.setOnClickListener(this);
 
 
-
-
-        mArcMenu = (ArcMenu) getView().findViewById(R.id.id_right_bottom);
+        //mArcMenu = (ArcMenu) getView().findViewById(R.id.id_right_bottom);
 
 
 
@@ -252,6 +251,9 @@ public class Diary extends Fragment{
     }
 
 
-
-
+    @Override
+    public void onClick(View v) {
+        intent = new Intent(getActivity(),AddContent.class);
+        startActivity(intent);
+    }
 }

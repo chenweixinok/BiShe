@@ -8,8 +8,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.internal.widget.ScrollingTabContainerView;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -34,16 +35,17 @@ public class SelectAct extends Activity implements View.OnClickListener {
 
         s_delete = (ImageView) findViewById(R.id.s_delete);
         s_back = (ImageView) findViewById(R.id.back_dray);
-        s_img = (ImageView) findViewById(R.id.s_img);
-        s_video = (VideoView) findViewById(R.id.s_video);
+       // s_img = (ImageView) findViewById(R.id.s_img);
+      //  s_video = (VideoView) findViewById(R.id.s_video);
         s_tv = (TextView) findViewById(R.id.s_tv);
+        s_tv.setMovementMethod(ScrollingMovementMethod.getInstance());
         notesDB = new NotesDB(this);
         dbWriter = notesDB.getWritableDatabase();
         s_delete.setOnClickListener(this);
         s_back.setOnClickListener(this);
 
 
-
+        /*
         if (getIntent().getStringExtra(NotesDB.PATH).equals("null")) {
             s_img.setVisibility(View.GONE);
         } else {
@@ -54,15 +56,15 @@ public class SelectAct extends Activity implements View.OnClickListener {
         } else {
             s_video.setVisibility(View.VISIBLE);
         }
-
+        */
 
         s_tv.setText(getIntent().getStringExtra(NotesDB.CONTENT));
-        Bitmap bitmap = BitmapFactory.decodeFile(getIntent().getStringExtra(
-                NotesDB.PATH));
-        s_img.setImageBitmap(bitmap);
-        s_video.setVideoURI(Uri
-                .parse(getIntent().getStringExtra(NotesDB.VIDEO)));
-        s_video.start();
+        //Bitmap bitmap = BitmapFactory.decodeFile(getIntent().getStringExtra(
+         //       NotesDB.PATH));
+       // s_img.setImageBitmap(bitmap);
+       // s_video.setVideoURI(Uri
+       //         .parse(getIntent().getStringExtra(NotesDB.VIDEO)));
+       // s_video.start();
 
     }
 
