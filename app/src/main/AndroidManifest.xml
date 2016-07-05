@@ -102,6 +102,7 @@
         <activity android:name=".activity.AddClassActivity" />
         <activity android:name=".activity.YueDuDetialActivity" />
         <activity android:name=".activity.BaiduSS"/>
+        <activity android:name=".activity.SearchActivity"/>
         <activity
             android:name=".activity.BaiDuActivity"
             android:label="@string/title_activity_bai_du" />

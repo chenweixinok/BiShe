@@ -4,6 +4,7 @@ import android.bishe.R;
 import android.bishe.activity.BaiDuActivity;
 import android.bishe.activity.BaiduSS;
 import android.bishe.activity.MusicActivity;
+import android.bishe.activity.SearchActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -55,7 +56,7 @@ public class MenuRightFragment extends Fragment implements View.OnClickListener 
 				break;
 
 			case R.id.text_Baidu_SS:
-				Intent intentSS = new Intent(getActivity(),BaiduSS.class);
+				Intent intentSS = new Intent(getActivity(),SearchActivity.class);
 				startActivity(intentSS);
 				break;
 		}
