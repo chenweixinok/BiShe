@@ -10,8 +10,10 @@ import android.bishe.receiver.MyReceiver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -20,6 +22,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.nineoldandroids.view.ViewHelper;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 
 
 public class MainActivity extends FragmentActivity implements RadioGroup.OnCheckedChangeListener {
@@ -35,6 +41,16 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
 
     private MyReceiver myReceiver;
 
+
+    private SQLiteDatabase database;
+    private final String DATABASE_PATH = Environment
+            .getExternalStorageDirectory() + "/timetable";
+    private final String DATABASE_FILENAME = "timetable.db";
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +58,8 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
 
         initView();
         initEvents();
+
+        database = openDatabase();
 
         IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         myReceiver = new MyReceiver();
@@ -171,10 +189,59 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
 
     }
 
+
+
+    private SQLiteDatabase openDatabase() {
+        try {
+            // 获得dictionary.db文件的绝对路径
+            String databaseFilename = DATABASE_PATH + "/" + DATABASE_FILENAME;
+            File dir = new File(DATABASE_PATH);
+            // 如果DATABASE_PATH目录不存在，创建这个目录
+            if (!dir.exists())
+                dir.mkdir();
+            // 如果在DATABASE_PATH目录中不存在
+            // DATABASE_FILENAME文件，则从res\raw目录中复制这个文件到
+            // SD卡的目录（DATABASE_PATH）
+            if (!(new File(databaseFilename)).exists()) {
+                System.out.println("正在复制数据库文件！");
+                // 获得封装文件的InputStream对象
+                InputStream is = getResources()
+                        .openRawResource(R.raw.timetable);
+                System.out.println("获得数据库文件数据流！");
+                // true就是追加文字，false就是替换文字。而不写就默认替换。
+                FileOutputStream fos = new FileOutputStream(databaseFilename,
+                        false);
+                System.out.println("获得数据库文件输出流！");
+                byte[] buffer = new byte[8192];
+                int count = 0;
+                // 开始复制文件
+                while ((count = is.read(buffer)) > 0) {
+                    fos.write(buffer, 0, count);
+                }
+                fos.close();
+                is.close();
+                System.out.println("数据库文件复制完成！");
+            }
+            // 打开/sdcard/dictionary目录中的dictionary.db文件
+            SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(
+                    databaseFilename, null);
+            return database;
+        } catch (Exception e) {
+            System.out.println("数据库加载出错！" + e.getMessage());
+        }
+        return null;
+    }
+
+
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(myReceiver);
+
+        if (database != null) {
+            database.close();
+        }
     }
 
 
