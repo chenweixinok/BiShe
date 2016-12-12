@@ -191,6 +191,7 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
 
 
 
+    //判断是否存在sql文件
     private SQLiteDatabase openDatabase() {
         try {
             // 获得dictionary.db文件的绝对路径
